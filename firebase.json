@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "firestore.rules",
+      "functions/**",
+      "scripts/**",
+      "PokemonDB.csv",
+      "README.md",
+      "**/.*",
+      "**/node_modules/**",
+      "EVENT_REPORT.md"
+    ]
+  }
+}
