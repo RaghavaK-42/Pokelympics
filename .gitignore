@@ -2,3 +2,5 @@ node_modules/
 functions/node_modules/
 .firebase/
 *-debug.log
+github-pages-upload/
+github-pages-upload.zip

@@ -1,0 +1,37 @@
+'use strict';
+function expandedMarkup(e){const net='<div class="sport-net"></div>',ball='<span class="sport-ball" id="sport-projectile"></span>';const scenes={
+ vault:'<div class="vault-mat"></div><div class="vault-bar"></div><div id="vault-pole"></div>',
+ hops:'<div class="hop-runway"></div><div class="hop-sand"></div><span class="hop-mark mark-a">1</span><span class="hop-mark mark-b">2</span><span class="hop-mark mark-c">3</span>',
+ hammer:'<div class="hammer-circle"></div><div class="throw-sector"></div><span id="sport-projectile" class="hammer-ball"></span>',
+ pins:'<div class="bowling-lane"></div>'+ball+'<div class="bowling-pins">'+Array.from({length:10},(_,i)=>`<i data-pin="${i}"></i>`).join('')+'</div>',
+ table:'<div class="ping-table"></div>'+net+ball+'<span class="rally-paddle"></span>',
+ shuttle:'<div class="court-lines"></div>'+net+'<span class="shuttlecock" id="sport-projectile">◀</span><span class="rally-racket">♧</span>',
+ tennis:'<div class="court-lines"></div>'+net+ball+'<span class="rally-racket">♧</span>',
+ goal:'<div class="goal-mouth"></div><div class="goal-box"></div>'+ball,
+ hoop:'<div class="basket-post"></div><div class="backboard"></div><div class="basket-hoop"></div>'+ball,
+ golf:'<div class="golf-green"></div><div class="golf-flag">⚑</div>'+ball+'<div class="golf-club"></div>',
+ curl:'<div class="curling-house"></div><span class="curling-stone" id="sport-projectile"></span>',
+ bounce:'<div class="trampoline-bed"></div><div class="bounce-streak"></div>',
+ rings:'<div class="ring-rope rope-a"></div><div class="ring-rope rope-b"></div><div class="gym-ring ring-a"></div><div class="gym-ring ring-b"></div><div class="rings-mat"></div>',
+ ribbon:'<div class="rhythm-mat"></div><svg class="ribbon-trail" viewBox="0 0 300 100"><path id="ribbon-path" fill="none" stroke="#e2b4dd" stroke-width="5" stroke-linecap="round"/></svg>',
+ kata:'<div class="kata-mat"></div><div class="kata-dummy"><i></i></div><span id="strike-burst">✧</span>',
+ ramp:'<div class="skate-ramp"></div><div class="skateboard-deck" id="skateboard-deck"></div>'};
+return `<div class="field expanded-field sport-${e.animation}">${scenes[e.animation]||''}<img class="expanded-athlete" id="expanded-athlete" alt=""><strong id="attempt-caption"></strong><strong class="event-callout" id="expanded-mark"></strong></div>`}
+function animateExpanded(content,e,result,g,elapsed){const slot=Math.max(0,Math.min(state.players.length-1,Math.floor(Math.max(0,elapsed)/e.duration))),player=state.players[slot],entry=result.standings.find(s=>s.uid===player.uid),mon=Draft.byId.get(entry.pokemonId),t=Math.max(0,Math.min(1,(elapsed-slot*e.duration)/e.duration)),power=Math.min(1,entry.score/(e.stats.length*5*1.12*1.1)),athlete=content.querySelector('#expanded-athlete'),mark=content.querySelector('#expanded-mark'),scene=e.animation;
+ if(athlete.dataset.id!==String(mon.id)){athlete.src=mon.image;athlete.alt=mon.name;athlete.dataset.id=mon.id}athlete.style.left='17%';athlete.style.bottom='21%';athlete.style.transform='translateX(-50%)';athlete.style.opacity=elapsed<0?'.6':'1';content.querySelector('#attempt-caption').textContent=player.name+' · '+mon.name;mark.textContent=t>.86?metricLabel(entry,e):'';
+ const projectile=content.querySelector('#sport-projectile'),flight=Math.max(0,Math.min(1,(t-.22)/.5));if(projectile){projectile.style.opacity=elapsed>=0&&t>.22?'1':'0';projectile.style.left=20+flight*(50+power*15)+'%';projectile.style.bottom=24+Math.sin(flight*Math.PI)*35+'%';projectile.style.transform=`rotate(${flight*720}deg)`}
+ if(scene==='vault'){const f=Math.max(0,Math.min(1,(t-.2)/.5));athlete.style.left=12+f*65+'%';athlete.style.bottom=22+Math.sin(f*Math.PI)*48+'%';athlete.style.transform=`translateX(-50%) rotate(${f*360}deg)`;const pole=content.querySelector('#vault-pole');pole.style.left=22+Math.min(f,.4)*45+'%';pole.style.transform=`rotate(${-60+f*150}deg)`;pole.style.opacity=t>.7?'0':'1';}
+ if(scene==='hops'){const f=Math.max(0,Math.min(1,(t-.1)/.72));athlete.style.left=10+f*(53+power*20)+'%';athlete.style.bottom=23+Math.abs(Math.sin(f*Math.PI*3))*24+'%';content.querySelectorAll('.hop-mark').forEach((m,i)=>m.classList.toggle('passed',f>(i+1)/3));}
+ if(scene==='hammer'){athlete.style.transform=`translateX(-50%) rotate(${Math.min(1,t/.22)*1080}deg)`;if(projectile)projectile.style.bottom=25+Math.sin(flight*Math.PI)*48+'%';}
+ if(scene==='pins'){if(projectile)projectile.style.bottom='22%';content.querySelectorAll('[data-pin]').forEach((pin,i)=>{const hit=t>.7&&i<Math.round(4+power*6);pin.style.transform=hit?`translate(${(i%2?1:-1)*20}px,12px) rotate(${i%2?75:-75}deg)`:'none';pin.style.opacity=hit?'.45':'1'});}
+ if(['table','shuttle','tennis'].includes(scene)){const f=Math.max(0,Math.min(1,(t-.12)/.7)),wave=(1-Math.cos(f*Math.PI*6))/2;if(projectile){projectile.style.left=22+wave*59+'%';projectile.style.bottom=(scene==='table'?45:30)+Math.abs(Math.sin(f*Math.PI*6))*(scene==='shuttle'?43:23)+'%'}athlete.style.left=17+Math.sin(f*Math.PI*6)*4+'%';athlete.style.transform=`translateX(-50%) rotate(${Math.sin(f*Math.PI*6)*12}deg)`;}
+ if(scene==='goal'){if(projectile){projectile.style.left=20+flight*65+'%';projectile.style.bottom=23+Math.sin(flight*Math.PI)*17+flight*power*25+'%'}athlete.style.transform=`translateX(-50%) rotate(${t>.2&&t<.4?-16:0}deg)`;}
+ if(scene==='hoop'){if(projectile){projectile.style.left=20+flight*60+'%';projectile.style.bottom=25+Math.sin(flight*Math.PI)*32+flight*30+'%'}}
+ if(scene==='golf'){if(projectile){projectile.style.left=20+flight*(50+power*14)+'%';projectile.style.bottom=23+Math.sin(flight*Math.PI)*50+'%'}content.querySelector('.golf-club').style.transform=`rotate(${-80+Math.min(1,t/.3)*150}deg)`;}
+ if(scene==='curl'){if(projectile){projectile.style.left=20+flight*(57+power*10)+'%';projectile.style.bottom=23+flight*16+'%';projectile.style.transform=`rotate(${flight*500}deg)`}}
+ if(scene==='bounce'){const f=Math.max(0,Math.min(1,(t-.08)/.75)),bounce=Math.abs(Math.sin(f*Math.PI*3));athlete.style.left='50%';athlete.style.bottom=23+bounce*48+'%';athlete.style.transform=`translateX(-50%) rotate(${Math.floor(f*3)*360+bounce*180}deg)`;}
+ if(scene==='rings'){athlete.style.left=50+Math.sin(t*Math.PI*4)*8+'%';athlete.style.bottom=30+Math.sin(t*Math.PI*2)*15+'%';athlete.style.transform=`translateX(-50%) rotate(${Math.sin(t*Math.PI*2)*160}deg)`;}
+ if(scene==='ribbon'){athlete.style.left=18+t*60+'%';athlete.style.transform=`translateX(-50%) rotate(${Math.sin(t*25)*18}deg)`;const x=50+Math.sin(t*18)*30;content.querySelector('#ribbon-path').setAttribute('d',`M 0 50 C 60 ${x-45}, 90 ${x+45}, 130 50 S 210 ${x-35}, 295 50`);content.querySelector('.ribbon-trail').style.left=8+t*50+'%';}
+ if(scene==='kata'){const pulse=Math.max(0,Math.sin(t*Math.PI*8));athlete.style.left=24+pulse*25+'%';athlete.style.transform=`translateX(-50%) rotate(${pulse*25}deg)`;content.querySelector('#strike-burst').style.opacity=pulse>.85?'1':'0';content.querySelector('.kata-dummy').style.transform=`rotate(${pulse*8}deg)`;}
+ if(scene==='ramp'){const f=Math.max(0,Math.min(1,(t-.1)/.75)),height=Math.abs(Math.sin(f*Math.PI*2));athlete.style.left=15+f*70+'%';athlete.style.bottom=25+height*35+'%';athlete.style.transform=`translateX(-50%) rotate(${f*720}deg)`;const deck=content.querySelector('#skateboard-deck');deck.style.left=athlete.style.left;deck.style.bottom=athlete.style.bottom;deck.style.transform=`translateX(-50%) rotate(${f*720}deg)`;}
+ return true;}

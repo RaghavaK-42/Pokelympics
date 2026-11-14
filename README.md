@@ -22,11 +22,11 @@ Run the rules checks with:
 node scripts/test-draft.cjs
 ```
 
-After drafting, admins start a tournament of **10 distinct events randomly selected from a pool of 18**. The selected order is saved once with the room. Every stat is important in exactly 8 events in the full pool; every type is favored in exactly 3. Individual draws are unconstrained random samples and may have uneven stat/type coverage. Events favor 2, 3, or 4 types. See `EVENT_REPORT.md` for the full lineup.
+After drafting, admins start a tournament of **10 distinct events randomly selected from a pool of 42**. The selected order is saved once with the room. Every stat is important in exactly 20 events in the full pool; every type is favored in exactly 7. Individual draws are unconstrained random samples and may have uneven stat/type coverage. Events favor 2, 3, or 4 types. See `EVENT_REPORT.md` for the full lineup.
 
 Internal scoring uses the sum of the event's star ratings, one non-stacking 12% bonus if either type is favored, and a random performance multiplier from 0.9 to 1.1. All event definitions are in `olympics.js`. Bonus types and stats are part of the event definition, so the interface and scoring stay consistent.
 
-Players lock one of their own Pokémon into each event. During selection, other players see only whether each entrant is ready, not which Pokémon they chose; entrants are revealed when the event begins. Each Pokémon may enter only one event per tournament. Used entrants remain visibly disabled on selection screens; saved results enforce this across refreshes and devices. All results are drawn once and saved before a synchronized animation starts. Races use lanes (with water lanes for swimming); individual events show throws, arrows, runway jumps, tumbling, barbell lifts, fencing strikes, and beam routines. After every animation, a Pokémon podium and full ranked results show time, distance, weight, or judged points for every player, plus the relevant star ratings and any type advantage. Lower times win races; higher marks win other events. After the animation, admins advance to the next event and eventually the final podium. Most gold medals wins; a tie shares the championship. Local play passes the screen for entry selection. Hover or focus any stat label for its Olympic meaning.
+Players lock one of their own Pokémon into each event. Each Pokémon may enter only one event per tournament. Used entrants remain visibly disabled on selection screens; saved results enforce this across refreshes and devices. All results are drawn once and saved before a synchronized animation starts. Races use lanes (with water lanes for swimming); individual events show throws, arrows, runway jumps, tumbling, barbell lifts, fencing strikes, and beam routines. After every animation, a Pokémon podium and full ranked results show time, distance, weight, or judged points for every player, plus the relevant star ratings and any type advantage. Lower times win races; higher marks win other events. After the animation, admins advance to the next event and eventually the final podium. Most gold medals wins; a tie shares the championship. Local play passes the screen for entry selection. Hover or focus any stat label for its Olympic meaning.
 
 Games checks: `node scripts/test-games.cjs`. An isolated in-memory animation preview is available at `/scripts/browser-preview.html` on a development server. This preview does not save fixture data.
 
@@ -65,3 +65,21 @@ Local setup and the online admin lobby both offer **Random draft**. It skips all
 Deals use the shared pool without repeating Pokémon entries across players. Paradox Pokémon (identified by CSV classification, except Koraidon and Miraidon, which remain Legendary) and all Ultra Beasts count as Sub-Legendary in both regular and random drafts. The same classification is used on cards, in quotas, and in all rules checks.
 
 Run `node scripts/test-random-draft.cjs` to check quotas, uniqueness, evolution eligibility, settings permissions, and the transition to the games.
+
+## GitHub Pages artwork
+
+The image assets must be committed along with the JavaScript. The live site cannot access artwork on your computer. Portable web artwork lives in `assets/pokemon/` as transparent WebP images with numeric ASCII filenames; `pokemon-data.js` points to these relative paths, including when the site is hosted beneath `/Pokelympics/`.
+
+Regenerate web artwork with `python scripts/build_web_assets.py` (requires Pillow), then build a complete upload folder/ZIP with `python scripts/package_github.py`. The original PNG folder is preserved for source data maintenance, but is not needed in the optimized deployment.
+
+To fix the GitHub deployment, copy the **contents** of `github-pages-upload/` into your local GitHub repository using GitHub Desktop, commit, and push to the branch used by Pages. Keep `assets/` alongside `index.html`. If using the ZIP, extract it first; uploading the ZIP as a single repository file does not publish the images inside it. GitHub's browser uploader permits only 100 files per upload, so GitHub Desktop is preferable for the full asset directory.
+
+## Expanded 42-event pool
+
+The pool now includes 24 additional events. Each of the six stats appears in exactly 20 events, and every type is favored in exactly 7. Each Olympics still draws 10 different events once and saves that lineup; individual draws may have uneven coverage. New events retain saved outcomes, single-use entries, animated performances, numeric metrics, and podiums. `EVENT_REPORT.md` lists all 42 events; `NEW_EVENTS_REPORT.md` lists the 24 additions.
+
+`expanded-animations.js` is required alongside `event-animations.js` for the new individual-event scenes. The GitHub packaging script includes both. Check new animation scenes with `node scripts/test-expanded-animations.cjs`.
+
+## Unique event profiles
+
+All 42 events have distinct important-stat sets and distinct boosted-type sets, ignoring order. Lists use 1–4 stats or types as needed. Overall balance remains exact: each stat appears in 20 events and each type is favored in 7. See the updated `EVENT_REPORT.md` for the complete matrix. Already recorded results retain their saved scores; new events use the revised profiles.

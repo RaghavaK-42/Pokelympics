@@ -1,24 +1,767 @@
 'use strict';
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory();else root.Olympics=factory()})(globalThis,function(){
 const events=[
- {id:'dash',name:'100 Meter Dash',stats:[5],types:['Electric','Normal','Fire'],duration:12000,mode:'race'},
- {id:'shot',name:'Shot Put',stats:[2,1],types:['Fighting','Rock','Steel'],duration:6000,mode:'turn'},
- {id:'archery',name:'Archery',stats:[3,4],types:['Grass','Psychic','Dark'],duration:6000,mode:'turn'},
- {id:'run',name:'1500 Meter Run',stats:[5,0],types:['Ground','Bug','Dragon'],duration:22000,mode:'race'},
- {id:'swim',name:'200 Meter Freestyle',stats:[0,5,4],types:['Water','Ice','Flying'],duration:16000,mode:'race'},
- {id:'jump',name:'Long Jump',stats:[1,5,2],types:['Flying','Ground','Fighting'],duration:6500,mode:'turn'},
- {id:'gym',name:'Floor Gymnastics',stats:[1,3,4],types:['Fairy','Psychic','Ghost'],duration:7500,mode:'turn'},
- {id:'lift',name:'Weightlifting',stats:[2,0],types:['Steel','Rock','Fire'],duration:6500,mode:'turn'},
- {id:'fence',name:'Fencing Target Challenge',stats:[1,3],types:['Bug','Dark','Poison'],duration:6500,mode:'turn'},
- {id:'balance',name:'Balance Beam',stats:[2,3,4,0],types:['Normal','Grass','Fairy'],duration:7500,mode:'turn'},
- {id:'hurdles',name:'110 Meter Hurdles',stats:[0,1,5],types:['Normal','Electric','Ground'],duration:14000,mode:'race'},
- {id:'highjump',name:'High Jump',stats:[1,2,5],types:['Flying','Dragon'],duration:7000,mode:'turn'},
- {id:'javelin',name:'Javelin Throw',stats:[2,3,4],types:['Fighting','Steel','Poison'],duration:7000,mode:'turn'},
- {id:'discus',name:'Discus Throw',stats:[2,3,0],types:['Rock','Fire','Dark'],duration:7000,mode:'turn'},
- {id:'dive',name:'Platform Diving',stats:[1,3,4],types:['Water','Psychic','Ghost','Fairy'],duration:7500,mode:'turn'},
- {id:'climb',name:'Speed Climbing',stats:[0,2,4],types:['Grass','Bug','Poison'],duration:15000,mode:'race'},
- {id:'skate',name:'500 Meter Speed Skating',stats:[1,4,5],types:['Ice','Ghost'],duration:17000,mode:'race'},
- {id:'canoe',name:'200 Meter Canoe Sprint',stats:[0,3,5],types:['Water','Electric','Dragon','Ice'],duration:17000,mode:'race'}
+ {
+  "id": "dash",
+  "name": "100 Meter Dash",
+  "stats": [
+   5
+  ],
+  "types": [
+   "Normal",
+   "Electric"
+  ],
+  "duration": 12000,
+  "mode": "race"
+ },
+ {
+  "id": "shot",
+  "name": "Shot Put",
+  "stats": [
+   1,
+   2
+  ],
+  "types": [
+   "Fighting",
+   "Rock",
+   "Steel"
+  ],
+  "duration": 6000,
+  "mode": "turn"
+ },
+ {
+  "id": "archery",
+  "name": "Archery",
+  "stats": [
+   3,
+   4,
+   5
+  ],
+  "types": [
+   "Grass",
+   "Psychic",
+   "Dark"
+  ],
+  "duration": 6000,
+  "mode": "turn"
+ },
+ {
+  "id": "run",
+  "name": "1500 Meter Run",
+  "stats": [
+   0
+  ],
+  "types": [
+   "Ground",
+   "Bug",
+   "Dragon"
+  ],
+  "duration": 22000,
+  "mode": "race"
+ },
+ {
+  "id": "swim",
+  "name": "200 Meter Freestyle",
+  "stats": [
+   0,
+   5
+  ],
+  "types": [
+   "Water",
+   "Ice",
+   "Flying"
+  ],
+  "duration": 16000,
+  "mode": "race"
+ },
+ {
+  "id": "jump",
+  "name": "Long Jump",
+  "stats": [
+   1,
+   5
+  ],
+  "types": [
+   "Fighting",
+   "Ground",
+   "Flying"
+  ],
+  "duration": 6500,
+  "mode": "turn"
+ },
+ {
+  "id": "gym",
+  "name": "Floor Gymnastics",
+  "stats": [
+   1,
+   3,
+   4
+  ],
+  "types": [
+   "Psychic",
+   "Ghost",
+   "Fairy"
+  ],
+  "duration": 7500,
+  "mode": "turn"
+ },
+ {
+  "id": "lift",
+  "name": "Weightlifting",
+  "stats": [
+   0,
+   2
+  ],
+  "types": [
+   "Fire",
+   "Rock",
+   "Steel"
+  ],
+  "duration": 6500,
+  "mode": "turn"
+ },
+ {
+  "id": "fence",
+  "name": "Fencing Target Challenge",
+  "stats": [
+   1
+  ],
+  "types": [
+   "Poison",
+   "Bug",
+   "Dark"
+  ],
+  "duration": 6500,
+  "mode": "turn"
+ },
+ {
+  "id": "balance",
+  "name": "Balance Beam",
+  "stats": [
+   4
+  ],
+  "types": [
+   "Normal",
+   "Grass",
+   "Fairy"
+  ],
+  "duration": 7500,
+  "mode": "turn"
+ },
+ {
+  "id": "hurdles",
+  "name": "110 Meter Hurdles",
+  "stats": [
+   0,
+   1,
+   2,
+   5
+  ],
+  "types": [
+   "Normal",
+   "Electric",
+   "Ground"
+  ],
+  "duration": 14000,
+  "mode": "race"
+ },
+ {
+  "id": "highjump",
+  "name": "High Jump",
+  "stats": [
+   1,
+   2,
+   4,
+   5
+  ],
+  "types": [
+   "Flying",
+   "Dragon"
+  ],
+  "duration": 7000,
+  "mode": "turn"
+ },
+ {
+  "id": "javelin",
+  "name": "Javelin Throw",
+  "stats": [
+   2,
+   4
+  ],
+  "types": [
+   "Fighting",
+   "Poison"
+  ],
+  "duration": 7000,
+  "mode": "turn"
+ },
+ {
+  "id": "discus",
+  "name": "Discus Throw",
+  "stats": [
+   0,
+   2,
+   3
+  ],
+  "types": [
+   "Fire",
+   "Rock",
+   "Dark"
+  ],
+  "duration": 7000,
+  "mode": "turn"
+ },
+ {
+  "id": "dive",
+  "name": "Platform Diving",
+  "stats": [
+   1,
+   3,
+   4,
+   5
+  ],
+  "types": [
+   "Water",
+   "Ghost",
+   "Fairy"
+  ],
+  "duration": 7500,
+  "mode": "turn"
+ },
+ {
+  "id": "climb",
+  "name": "Speed Climbing",
+  "stats": [
+   0,
+   1,
+   2,
+   4
+  ],
+  "types": [
+   "Grass",
+   "Poison",
+   "Bug"
+  ],
+  "duration": 15000,
+  "mode": "race"
+ },
+ {
+  "id": "skate",
+  "name": "500 Meter Speed Skating",
+  "stats": [
+   1,
+   2,
+   4
+  ],
+  "types": [
+   "Ice",
+   "Ghost",
+   "Dark"
+  ],
+  "duration": 17000,
+  "mode": "race"
+ },
+ {
+  "id": "canoe",
+  "name": "200 Meter Canoe Sprint",
+  "stats": [
+   0,
+   3,
+   5
+  ],
+  "types": [
+   "Water",
+   "Electric",
+   "Ice",
+   "Dragon"
+  ],
+  "duration": 17000,
+  "mode": "race"
+ },
+ {
+  "id": "sprint400",
+  "name": "400 Meter Sprint",
+  "stats": [
+   0,
+   1,
+   3,
+   5
+  ],
+  "types": [
+   "Normal",
+   "Fire",
+   "Electric"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "sprint",
+  "distance": 400,
+  "metric": {
+   "unit": "s",
+   "offset": 40,
+   "scale": 800,
+   "lower": true
+  }
+ },
+ {
+  "id": "steeple",
+  "name": "3000 Meter Steeplechase",
+  "stats": [
+   0,
+   4,
+   5
+  ],
+  "types": [
+   "Electric",
+   "Grass",
+   "Ground",
+   "Bug"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "steeple",
+  "distance": 3000,
+  "metric": {
+   "unit": "s",
+   "offset": 300,
+   "scale": 6000,
+   "lower": true
+  }
+ },
+ {
+  "id": "butterfly",
+  "name": "50 Meter Butterfly",
+  "stats": [
+   0,
+   1,
+   5
+  ],
+  "types": [
+   "Water",
+   "Ice",
+   "Ground",
+   "Flying"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "water",
+  "distance": 50,
+  "metric": {
+   "unit": "s",
+   "offset": 5,
+   "scale": 100,
+   "lower": true
+  }
+ },
+ {
+  "id": "rowing",
+  "name": "Single Sculls Rowing",
+  "stats": [
+   0,
+   2,
+   3,
+   4
+  ],
+  "types": [
+   "Water",
+   "Dragon"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "boat",
+  "distance": 1000,
+  "metric": {
+   "unit": "s",
+   "offset": 100,
+   "scale": 2000,
+   "lower": true
+  }
+ },
+ {
+  "id": "cycling",
+  "name": "Track Cycling",
+  "stats": [
+   0,
+   2,
+   4,
+   5
+  ],
+  "types": [
+   "Normal",
+   "Electric",
+   "Steel"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "bike",
+  "distance": 1000,
+  "metric": {
+   "unit": "s",
+   "offset": 100,
+   "scale": 2000,
+   "lower": true
+  }
+ },
+ {
+  "id": "ski",
+  "name": "Alpine Slalom",
+  "stats": [
+   1,
+   3
+  ],
+  "types": [
+   "Water",
+   "Ice",
+   "Ghost"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "ski",
+  "distance": 500,
+  "metric": {
+   "unit": "s",
+   "offset": 50,
+   "scale": 1000,
+   "lower": true
+  }
+ },
+ {
+  "id": "crosscountry",
+  "name": "Cross-Country Run",
+  "stats": [
+   0,
+   3,
+   4,
+   5
+  ],
+  "types": [
+   "Ground",
+   "Psychic",
+   "Bug",
+   "Dragon"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "trail",
+  "distance": 5000,
+  "metric": {
+   "unit": "s",
+   "offset": 500,
+   "scale": 10000,
+   "lower": true
+  }
+ },
+ {
+  "id": "obstacle",
+  "name": "Obstacle Sprint",
+  "stats": [
+   0,
+   1,
+   2
+  ],
+  "types": [
+   "Fighting",
+   "Poison",
+   "Rock"
+  ],
+  "duration": 16000,
+  "mode": "race",
+  "animation": "obstacle",
+  "distance": 200,
+  "metric": {
+   "unit": "s",
+   "offset": 20,
+   "scale": 400,
+   "lower": true
+  }
+ },
+ {
+  "id": "polevault",
+  "name": "Pole Vault",
+  "stats": [
+   1,
+   2,
+   3,
+   5
+  ],
+  "types": [
+   "Flying",
+   "Steel"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "vault",
+  "metric": {
+   "unit": "m",
+   "scale": 0.3,
+   "lower": false
+  }
+ },
+ {
+  "id": "triplejump",
+  "name": "Triple Jump",
+  "stats": [
+   1,
+   2,
+   5
+  ],
+  "types": [
+   "Fighting"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "hops",
+  "metric": {
+   "unit": "m",
+   "scale": 1.1,
+   "lower": false
+  }
+ },
+ {
+  "id": "hammer",
+  "name": "Hammer Throw",
+  "stats": [
+   2,
+   5
+  ],
+  "types": [
+   "Fire",
+   "Rock",
+   "Steel",
+   "Fairy"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "hammer",
+  "metric": {
+   "unit": "m",
+   "scale": 7,
+   "lower": false
+  }
+ },
+ {
+  "id": "bowling",
+  "name": "Ten-Pin Bowling",
+  "stats": [
+   2,
+   3,
+   4,
+   5
+  ],
+  "types": [
+   "Rock"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "pins"
+ },
+ {
+  "id": "tabletennis",
+  "name": "Table Tennis Rally",
+  "stats": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "types": [
+   "Electric",
+   "Psychic",
+   "Bug"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "table"
+ },
+ {
+  "id": "badminton",
+  "name": "Badminton Accuracy",
+  "stats": [
+   1,
+   3,
+   5
+  ],
+  "types": [
+   "Grass",
+   "Flying",
+   "Fairy"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "shuttle"
+ },
+ {
+  "id": "tennis",
+  "name": "Tennis Serve",
+  "stats": [
+   2,
+   3,
+   4
+  ],
+  "types": [
+   "Fire",
+   "Grass",
+   "Psychic"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "tennis"
+ },
+ {
+  "id": "soccer",
+  "name": "Football Free Kick",
+  "stats": [
+   3
+  ],
+  "types": [
+   "Fighting",
+   "Poison",
+   "Dark"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "goal"
+ },
+ {
+  "id": "basketball",
+  "name": "Basketball Free Throw",
+  "stats": [
+   2,
+   3
+  ],
+  "types": [
+   "Flying",
+   "Psychic"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "hoop"
+ },
+ {
+  "id": "golf",
+  "name": "Golf Approach",
+  "stats": [
+   0,
+   3,
+   4
+  ],
+  "types": [
+   "Grass",
+   "Ground",
+   "Ghost",
+   "Dragon"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "golf"
+ },
+ {
+  "id": "curling",
+  "name": "Curling Precision",
+  "stats": [
+   0,
+   2,
+   3,
+   5
+  ],
+  "types": [
+   "Water",
+   "Ice",
+   "Steel"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "curl"
+ },
+ {
+  "id": "trampoline",
+  "name": "Trampoline Routine",
+  "stats": [
+   0,
+   4
+  ],
+  "types": [
+   "Psychic",
+   "Ghost",
+   "Steel",
+   "Fairy"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "bounce"
+ },
+ {
+  "id": "rings",
+  "name": "Still Rings",
+  "stats": [
+   0,
+   2,
+   4
+  ],
+  "types": [
+   "Fire",
+   "Fighting",
+   "Rock",
+   "Dragon"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "rings"
+ },
+ {
+  "id": "ribbon",
+  "name": "Rhythmic Ribbon",
+  "stats": [
+   0,
+   1,
+   3
+  ],
+  "types": [
+   "Normal",
+   "Poison",
+   "Ghost",
+   "Fairy"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "ribbon"
+ },
+ {
+  "id": "karate",
+  "name": "Karate Kata",
+  "stats": [
+   0,
+   1,
+   3,
+   4
+  ],
+  "types": [
+   "Fire",
+   "Poison",
+   "Dark"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "kata"
+ },
+ {
+  "id": "skateboard",
+  "name": "Skateboard Park",
+  "stats": [
+   1,
+   4,
+   5
+  ],
+  "types": [
+   "Normal",
+   "Ice",
+   "Bug",
+   "Dark"
+  ],
+  "duration": 6500,
+  "mode": "turn",
+  "animation": "ramp"
+ }
 ];
 // Internal scoring: sum each event's listed star ratings, then apply one
 // non-stacking 12% affinity bonus and a single uniform 0.9–1.1 performance factor.
@@ -28,7 +771,7 @@ function rating(v){return v<20?.5:v<40?1:v<53?1.5:v<66?2:v<79?2.5:v<92?3:v<105?3
 function eventFor(room){return events.find(e=>e.id===room.games.order[room.games.index])}
 function duration(room){const e=eventFor(room);return e.mode==='turn'?e.duration*room.players.length:e.duration}
 function usedPokemon(room,uid){return new Set((room.games?.results||[]).flatMap(r=>r.standings.filter(s=>s.uid===uid).map(s=>s.pokemonId)))}
-function performance(event,score){switch(event.id){
+function performance(event,score){if(event.metric){const m=event.metric;return {value:(m.offset||0)+(m.lower?m.scale/score:m.scale*score),unit:m.unit,lower:m.lower}}switch(event.id){
  case 'dash':return {value:7+30/score,unit:'s',lower:true};
  case 'run':return {value:180+900/score,unit:'s',lower:true};
  case 'swim':return {value:70+300/score,unit:'s',lower:true};

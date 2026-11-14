@@ -11,7 +11,8 @@
       "README.md",
       "**/.*",
       "**/node_modules/**",
-      "EVENT_REPORT.md"
+      "EVENT_REPORT.md",
+      "NEW_EVENTS_REPORT.md"
     ]
   }
 }
