@@ -89,3 +89,7 @@ The only working directory is `C:\Users\Ragha\OneDrive\Desktop\Pokelympics`.
 ## Event count
 
 Admins can choose 1–12 Olympic events in the lobby or on the team review screen before starting the Olympics. The default is 10, including existing rooms without a saved setting. The selection is shared with the room and locks once the Olympics starts. Local setup offers the same setting. The 12-event maximum respects the twelve-Pokémon roster and single-use rule. The chosen number is sampled without replacement from the 41-event pool.
+
+## Concealed event selections
+
+While entrants are being selected, each online player sees their own selected Pokémon and only a Ready/Choosing indicator for opponents. Admins have the same selection visibility as other players. Opponent names, artwork URLs, and image alt text are not rendered until all entries lock and the event countdown begins. Local pass-the-screen mode similarly conceals earlier players' choices from the next player.
