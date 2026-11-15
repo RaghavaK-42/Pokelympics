@@ -85,3 +85,7 @@ The pool now includes 23 additional events. Each of the six stats appears in exa
 The pool contains 41 events; Obstacle Sprint has been removed. Each event uses 1–3 stats and has a unique stat set. Every stat appears exactly 16 times. Each event also favors 1–3 types with a unique boosted-type set, and every type is favored exactly six times. Each Olympics still draws 10 different events. Event animations run at twice their original speed with a two-second countdown.
 
 The only working directory is `C:\Users\Ragha\OneDrive\Desktop\Pokelympics`.
+
+## Event count
+
+Admins can choose 1–12 Olympic events in the lobby or on the team review screen before starting the Olympics. The default is 10, including existing rooms without a saved setting. The selection is shared with the room and locks once the Olympics starts. Local setup offers the same setting. The 12-event maximum respects the twelve-Pokémon roster and single-use rule. The chosen number is sampled without replacement from the 41-event pool.

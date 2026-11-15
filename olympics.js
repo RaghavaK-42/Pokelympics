@@ -708,6 +708,7 @@ const events=[
 function scorePokemon(mon,event,random=Math.random){const base=event.stats.reduce((sum,i)=>sum+rating(mon.stats[i]),0),typeBonus=mon.types.some(t=>event.types.includes(t))?1.12:1,factor=.9+random()*.2;return {base,typeBonus,factor,score:base*typeBonus*factor}}
 
 function rating(v){return v<20?.5:v<40?1:v<53?1.5:v<66?2:v<79?2.5:v<92?3:v<105?3.5:v<118?4:v<131?4.5:5}
+function validateEventCount(value){if(!Number.isInteger(value)||value<1||value>12)throw Error('Choose between 1 and 12 events.');return value}
 function eventFor(room){return events.find(e=>e.id===room.games.order[room.games.index])}
 function duration(room){const e=eventFor(room);return e.mode==='turn'?e.duration*room.players.length:e.duration}
 function usedPokemon(room,uid){return new Set((room.games?.results||[]).flatMap(r=>r.standings.filter(s=>s.uid===uid).map(s=>s.pokemonId)))}
@@ -728,7 +729,7 @@ function performance(event,score){if(event.metric){const m=event.metric;return {
  default:return {value:100*score/(event.stats.length*5*1.12*1.1),unit:'points',lower:false};
 }}
 function apply(room,uid,data,pokemon){const admin=(room.adminIds||[]).includes(uid),now=data.now||Date.now();
- if(data.action==='startGames'){if(!admin)throw Error('Only an admin can start the games.');if(room.turn!==room.players.length*12||room.games)throw Error('Finish the draft before starting the games.');const order=events.map(e=>e.id);for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}room.games={order:order.slice(0,10),index:0,phase:'select',entries:{},results:[]};room.status='games';}
+ if(data.action==='startGames'){if(!admin)throw Error('Only an admin can start the games.');if(room.turn!==room.players.length*12||room.games)throw Error('Finish the draft before starting the games.');const count=validateEventCount(room.eventCount??10);if(room.players.some(p=>p.team.length<count))throw Error('Every player needs an unused Pokémon for each event.');const order=events.map(e=>e.id);for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}room.games={order:order.slice(0,count),index:0,phase:'select',entries:{},results:[]};room.status='games';}
  else {if(room.status!=='games'||!room.games)throw Error('The games are not active.');const g=room.games;
  if(data.action==='enterEvent'){if(g.phase!=='select')throw Error('Entries are closed.');const player=room.players.find(p=>p.uid===uid);if(!player||!player.team.includes(Number(data.pokemonId)))throw Error('Choose a Pokémon from your own team.');if(usedPokemon(room,uid).has(Number(data.pokemonId)))throw Error('This Pokémon has already competed. Choose an unused team member.');if(room.fullyEvolvedOnly&&!pokemon.find(p=>p.id===Number(data.pokemonId)).fullyEvolved)throw Error('Only fully evolved Pokémon may compete.');if(g.entries[uid])throw Error('Your entry is already locked.');g.entries[uid]=Number(data.pokemonId);
  if(room.players.every(p=>g.entries[p.uid])){const e=eventFor(room);g.results=g.results||[];const standings=room.players.map(p=>{const id=g.entries[p.uid],mon=pokemon.find(x=>x.id===id);return {uid:p.uid,pokemonId:id,...scorePokemon(mon,e)}}).sort((a,b)=>b.score-a.score);g.results.push({event:e.id,standings});g.phase='animate';g.startsAt=now+2000;g.endsAt=g.startsAt+duration(room);}}
@@ -736,5 +737,5 @@ function apply(room,uid,data,pokemon){const admin=(room.adminIds||[]).includes(u
  else throw Error('Unknown games action.');}
  return room;}
 function medals(room,now=Infinity){const totals=room.players.map(p=>({uid:p.uid,name:p.name,golds:0}));for(const [i,r] of (room.games.results||[]).entries()){if(room.games.phase==='animate'&&i===room.games.index&&now<room.games.endsAt)continue;for(const s of r.standings.filter(s=>s.score===r.standings[0].score))totals.find(p=>p.uid===s.uid).golds++}return totals.sort((a,b)=>b.golds-a.golds)}
-return {events,usedPokemon,performance,scorePokemon,rating,eventFor,duration,apply,medals};
+return {events,validateEventCount,usedPokemon,performance,scorePokemon,rating,eventFor,duration,apply,medals};
 });
