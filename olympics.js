@@ -9,9 +9,10 @@ const events=[
   ],
   "types": [
    "Normal",
-   "Electric"
+   "Electric",
+   "Dark"
   ],
-  "duration": 12000,
+  "duration": 6000,
   "mode": "race"
  },
  {
@@ -26,7 +27,7 @@ const events=[
    "Rock",
    "Steel"
   ],
-  "duration": 6000,
+  "duration": 3000,
   "mode": "turn"
  },
  {
@@ -39,10 +40,9 @@ const events=[
   ],
   "types": [
    "Grass",
-   "Psychic",
-   "Dark"
+   "Psychic"
   ],
-  "duration": 6000,
+  "duration": 3000,
   "mode": "turn"
  },
  {
@@ -56,7 +56,7 @@ const events=[
    "Bug",
    "Dragon"
   ],
-  "duration": 22000,
+  "duration": 11000,
   "mode": "race"
  },
  {
@@ -71,7 +71,7 @@ const events=[
    "Ice",
    "Flying"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race"
  },
  {
@@ -82,11 +82,9 @@ const events=[
    5
   ],
   "types": [
-   "Fighting",
-   "Ground",
-   "Flying"
+   "Fighting"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn"
  },
  {
@@ -99,10 +97,9 @@ const events=[
   ],
   "types": [
    "Psychic",
-   "Ghost",
-   "Fairy"
+   "Ghost"
   ],
-  "duration": 7500,
+  "duration": 3750,
   "mode": "turn"
  },
  {
@@ -117,7 +114,7 @@ const events=[
    "Rock",
    "Steel"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn"
  },
  {
@@ -128,10 +125,9 @@ const events=[
   ],
   "types": [
    "Poison",
-   "Bug",
    "Dark"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn"
  },
  {
@@ -142,10 +138,9 @@ const events=[
   ],
   "types": [
    "Normal",
-   "Grass",
    "Fairy"
   ],
-  "duration": 7500,
+  "duration": 3750,
   "mode": "turn"
  },
  {
@@ -153,7 +148,6 @@ const events=[
   "name": "110 Meter Hurdles",
   "stats": [
    0,
-   1,
    2,
    5
   ],
@@ -162,23 +156,21 @@ const events=[
    "Electric",
    "Ground"
   ],
-  "duration": 14000,
+  "duration": 7000,
   "mode": "race"
  },
  {
   "id": "highjump",
   "name": "High Jump",
   "stats": [
-   1,
-   2,
-   4,
-   5
+   2
   ],
   "types": [
    "Flying",
+   "Rock",
    "Dragon"
   ],
-  "duration": 7000,
+  "duration": 3500,
   "mode": "turn"
  },
  {
@@ -190,9 +182,10 @@ const events=[
   ],
   "types": [
    "Fighting",
-   "Poison"
+   "Poison",
+   "Bug"
   ],
-  "duration": 7000,
+  "duration": 3500,
   "mode": "turn"
  },
  {
@@ -208,7 +201,7 @@ const events=[
    "Rock",
    "Dark"
   ],
-  "duration": 7000,
+  "duration": 3500,
   "mode": "turn"
  },
  {
@@ -216,16 +209,13 @@ const events=[
   "name": "Platform Diving",
   "stats": [
    1,
-   3,
-   4,
-   5
+   4
   ],
   "types": [
    "Water",
-   "Ghost",
    "Fairy"
   ],
-  "duration": 7500,
+  "duration": 3750,
   "mode": "turn"
  },
  {
@@ -234,7 +224,6 @@ const events=[
   "stats": [
    0,
    1,
-   2,
    4
   ],
   "types": [
@@ -242,7 +231,7 @@ const events=[
    "Poison",
    "Bug"
   ],
-  "duration": 15000,
+  "duration": 7500,
   "mode": "race"
  },
  {
@@ -255,10 +244,9 @@ const events=[
   ],
   "types": [
    "Ice",
-   "Ghost",
-   "Dark"
+   "Ghost"
   ],
-  "duration": 17000,
+  "duration": 8500,
   "mode": "race"
  },
  {
@@ -270,29 +258,25 @@ const events=[
    5
   ],
   "types": [
-   "Water",
    "Electric",
    "Ice",
    "Dragon"
   ],
-  "duration": 17000,
+  "duration": 8500,
   "mode": "race"
  },
  {
   "id": "sprint400",
   "name": "400 Meter Sprint",
   "stats": [
-   0,
-   1,
    3,
    5
   ],
   "types": [
    "Normal",
-   "Fire",
    "Electric"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "sprint",
   "distance": 400,
@@ -314,10 +298,9 @@ const events=[
   "types": [
    "Electric",
    "Grass",
-   "Ground",
-   "Bug"
+   "Ground"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "steeple",
   "distance": 3000,
@@ -338,11 +321,9 @@ const events=[
   ],
   "types": [
    "Water",
-   "Ice",
-   "Ground",
-   "Flying"
+   "Ice"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "water",
   "distance": 50,
@@ -357,16 +338,15 @@ const events=[
   "id": "rowing",
   "name": "Single Sculls Rowing",
   "stats": [
-   0,
-   2,
    3,
    4
   ],
   "types": [
    "Water",
+   "Ghost",
    "Dragon"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "boat",
   "distance": 1000,
@@ -381,17 +361,15 @@ const events=[
   "id": "cycling",
   "name": "Track Cycling",
   "stats": [
-   0,
    2,
    4,
    5
   ],
   "types": [
    "Normal",
-   "Electric",
    "Steel"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "bike",
   "distance": 1000,
@@ -414,7 +392,7 @@ const events=[
    "Ice",
    "Ghost"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "ski",
   "distance": 500,
@@ -429,18 +407,15 @@ const events=[
   "id": "crosscountry",
   "name": "Cross-Country Run",
   "stats": [
-   0,
-   3,
    4,
    5
   ],
   "types": [
    "Ground",
    "Psychic",
-   "Bug",
    "Dragon"
   ],
-  "duration": 16000,
+  "duration": 8000,
   "mode": "race",
   "animation": "trail",
   "distance": 5000,
@@ -452,43 +427,18 @@ const events=[
   }
  },
  {
-  "id": "obstacle",
-  "name": "Obstacle Sprint",
-  "stats": [
-   0,
-   1,
-   2
-  ],
-  "types": [
-   "Fighting",
-   "Poison",
-   "Rock"
-  ],
-  "duration": 16000,
-  "mode": "race",
-  "animation": "obstacle",
-  "distance": 200,
-  "metric": {
-   "unit": "s",
-   "offset": 20,
-   "scale": 400,
-   "lower": true
-  }
- },
- {
   "id": "polevault",
   "name": "Pole Vault",
   "stats": [
-   1,
-   2,
-   3,
-   5
+   0,
+   1
   ],
   "types": [
+   "Ground",
    "Flying",
    "Steel"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "vault",
   "metric": {
@@ -506,9 +456,11 @@ const events=[
    5
   ],
   "types": [
-   "Fighting"
+   "Fighting",
+   "Bug",
+   "Dark"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "hops",
   "metric": {
@@ -526,11 +478,10 @@ const events=[
   ],
   "types": [
    "Fire",
-   "Rock",
    "Steel",
    "Fairy"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "hammer",
   "metric": {
@@ -545,13 +496,13 @@ const events=[
   "stats": [
    2,
    3,
-   4,
    5
   ],
   "types": [
+   "Flying",
    "Rock"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "pins"
  },
@@ -561,15 +512,13 @@ const events=[
   "stats": [
    1,
    2,
-   3,
-   4
+   3
   ],
   "types": [
    "Electric",
-   "Psychic",
    "Bug"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "table"
  },
@@ -586,7 +535,7 @@ const events=[
    "Flying",
    "Fairy"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "shuttle"
  },
@@ -603,7 +552,7 @@ const events=[
    "Grass",
    "Psychic"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "tennis"
  },
@@ -618,7 +567,7 @@ const events=[
    "Poison",
    "Dark"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "goal"
  },
@@ -631,9 +580,10 @@ const events=[
   ],
   "types": [
    "Flying",
-   "Psychic"
+   "Psychic",
+   "Bug"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "hoop"
  },
@@ -642,16 +592,14 @@ const events=[
   "name": "Golf Approach",
   "stats": [
    0,
-   3,
-   4
+   3
   ],
   "types": [
    "Grass",
    "Ground",
-   "Ghost",
    "Dragon"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "golf"
  },
@@ -660,16 +608,15 @@ const events=[
   "name": "Curling Precision",
   "stats": [
    0,
-   2,
-   3,
-   5
+   1,
+   2
   ],
   "types": [
    "Water",
    "Ice",
    "Steel"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "curl"
  },
@@ -683,10 +630,9 @@ const events=[
   "types": [
    "Psychic",
    "Ghost",
-   "Steel",
    "Fairy"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "bounce"
  },
@@ -701,10 +647,9 @@ const events=[
   "types": [
    "Fire",
    "Fighting",
-   "Rock",
-   "Dragon"
+   "Rock"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "rings"
  },
@@ -717,12 +662,11 @@ const events=[
    3
   ],
   "types": [
-   "Normal",
    "Poison",
    "Ghost",
    "Fairy"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "ribbon"
  },
@@ -731,7 +675,6 @@ const events=[
   "name": "Karate Kata",
   "stats": [
    0,
-   1,
    3,
    4
   ],
@@ -740,7 +683,7 @@ const events=[
    "Poison",
    "Dark"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "kata"
  },
@@ -753,12 +696,9 @@ const events=[
    5
   ],
   "types": [
-   "Normal",
-   "Ice",
-   "Bug",
-   "Dark"
+   "Normal"
   ],
-  "duration": 6500,
+  "duration": 3250,
   "mode": "turn",
   "animation": "ramp"
  }
@@ -791,7 +731,7 @@ function apply(room,uid,data,pokemon){const admin=(room.adminIds||[]).includes(u
  if(data.action==='startGames'){if(!admin)throw Error('Only an admin can start the games.');if(room.turn!==room.players.length*12||room.games)throw Error('Finish the draft before starting the games.');const order=events.map(e=>e.id);for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}room.games={order:order.slice(0,10),index:0,phase:'select',entries:{},results:[]};room.status='games';}
  else {if(room.status!=='games'||!room.games)throw Error('The games are not active.');const g=room.games;
  if(data.action==='enterEvent'){if(g.phase!=='select')throw Error('Entries are closed.');const player=room.players.find(p=>p.uid===uid);if(!player||!player.team.includes(Number(data.pokemonId)))throw Error('Choose a Pokémon from your own team.');if(usedPokemon(room,uid).has(Number(data.pokemonId)))throw Error('This Pokémon has already competed. Choose an unused team member.');if(room.fullyEvolvedOnly&&!pokemon.find(p=>p.id===Number(data.pokemonId)).fullyEvolved)throw Error('Only fully evolved Pokémon may compete.');if(g.entries[uid])throw Error('Your entry is already locked.');g.entries[uid]=Number(data.pokemonId);
- if(room.players.every(p=>g.entries[p.uid])){const e=eventFor(room);g.results=g.results||[];const standings=room.players.map(p=>{const id=g.entries[p.uid],mon=pokemon.find(x=>x.id===id);return {uid:p.uid,pokemonId:id,...scorePokemon(mon,e)}}).sort((a,b)=>b.score-a.score);g.results.push({event:e.id,standings});g.phase='animate';g.startsAt=now+4000;g.endsAt=g.startsAt+duration(room);}}
+ if(room.players.every(p=>g.entries[p.uid])){const e=eventFor(room);g.results=g.results||[];const standings=room.players.map(p=>{const id=g.entries[p.uid],mon=pokemon.find(x=>x.id===id);return {uid:p.uid,pokemonId:id,...scorePokemon(mon,e)}}).sort((a,b)=>b.score-a.score);g.results.push({event:e.id,standings});g.phase='animate';g.startsAt=now+2000;g.endsAt=g.startsAt+duration(room);}}
  else if(data.action==='nextEvent'){if(!admin)throw Error('Only an admin can advance the games.');if(g.phase!=='animate'||now<g.endsAt)throw Error('Wait until the event finishes.');if(g.index===g.order.length-1){g.phase='finished';room.status='finished'}else{g.index++;g.phase='select';g.entries={};delete g.startsAt;delete g.endsAt}}
  else throw Error('Unknown games action.');}
  return room;}

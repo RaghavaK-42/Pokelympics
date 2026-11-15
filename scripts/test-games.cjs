@@ -22,16 +22,19 @@ assert.equal(room.status,'finished');assert.equal(Olympics.medals(room).reduce((
 act('a','reset');assert.equal(room.games,undefined);assert.equal(room.status,'lobby');
 console.log('PASS: all ten formulas, entrant ownership, duplicate entries, admin gates, saved outcomes, timing, normalization, medals, full games and reset.');
 
-const stats=Array(6).fill(0),types={};for(const e of Olympics.events){assert(e.types.length>=1&&e.types.length<=4);e.stats.forEach(i=>stats[i]++);e.types.forEach(t=>types[t]=(types[t]||0)+1)}assert.deepEqual(stats,[20,20,20,20,20,20]);assert.equal(Object.keys(types).length,18);assert(Object.values(types).every(n=>n===7));
+const stats=Array(6).fill(0),types={};for(const e of Olympics.events){assert(e.types.length>=1&&e.types.length<=3);e.stats.forEach(i=>stats[i]++);e.types.forEach(t=>types[t]=(types[t]||0)+1)}assert.deepEqual(stats,[16,16,16,16,16,16]);assert.equal(Object.keys(types).length,18);assert(Object.values(types).every(n=>n===6));
 for(const e of Olympics.events){const mon={stats:[100,100,100,100,100,100],types:[e.types[0]]},one=Olympics.scorePokemon(mon,e,()=>.5);assert.equal(one.typeBonus,1.12);assert.equal(one.factor,1);assert.equal(one.score,one.base*1.12);mon.types=e.types.slice(0,2);assert.equal(Olympics.scorePokemon(mon,e,()=>.5).typeBonus,1.12);mon.types=['Unknown'];assert.equal(Olympics.scorePokemon(mon,e,()=>.5).typeBonus,1)}
-const fs=require('node:fs');const ui=fs.readFileSync('games-ui.js','utf8');assert(!ui.includes('e.formula'));assert(!ui.includes('of 4'));assert(!ui.includes('g.index===3'));console.log('PASS: each stat appears twenty times, all 18 types appear seven times, type bonuses do not stack, UI hides formulas.');
+const fs=require('node:fs');const ui=fs.readFileSync('games-ui.js','utf8');assert(!ui.includes('e.formula'));assert(!ui.includes('of 4'));assert(!ui.includes('g.index===3'));console.log('PASS: each stat appears sixteen times, all 18 types appear six times, type bonuses do not stack, UI hides formulas.');
 
 for(const event of Olympics.events){const low=Olympics.performance(event,3),high=Olympics.performance(event,4);assert(Number.isFinite(low.value));assert(low.lower?high.value<low.value:high.value>low.value)}
 console.log('PASS: no Pokémon reuse across all ten events; every performance metric preserves winner ordering.');
 
-assert.equal(Olympics.events.length,42);assert(new Set(Olympics.events.map(e=>e.types.length)).size>1);
-const observed=new Set();for(let i=0;i<200;i++){const r={players:[{uid:'a',team:Array(12).fill(1)}],turn:12,adminIds:['a']};Olympics.apply(r,'a',{action:'startGames'},pokemon);assert.equal(r.games.order.length,10);assert.equal(new Set(r.games.order).size,10);r.games.order.forEach(id=>observed.add(id))}assert.equal(observed.size,42);
-console.log('PASS: 200 independent tournament draws select exactly 10 distinct events from 42; every event is reachable.');
+assert.equal(Olympics.events.length,41);assert(new Set(Olympics.events.map(e=>e.types.length)).size>1);
+const observed=new Set();for(let i=0;i<200;i++){const r={players:[{uid:'a',team:Array(12).fill(1)}],turn:12,adminIds:['a']};Olympics.apply(r,'a',{action:'startGames'},pokemon);assert.equal(r.games.order.length,10);assert.equal(new Set(r.games.order).size,10);r.games.order.forEach(id=>observed.add(id))}assert.equal(observed.size,41);
+console.log('PASS: 200 independent tournament draws select exactly 10 distinct events from 41; every event is reachable.');
 
-for(const key of ['stats','types']){const sets=Olympics.events.map(e=>[...e[key]].sort().join('|'));assert.equal(new Set(sets).size,42,'Every event must have a distinct '+key+' set, ignoring order')}
-console.log('PASS: all 42 stat sets and all 42 boosted-type sets are unique, independent of ordering.');
+for(const event of Olympics.events){assert(event.stats.length>=1&&event.stats.length<=3);assert(event.duration<=11000)}
+const statSets=Olympics.events.map(e=>[...e.stats].sort().join('|')),typeSets=Olympics.events.map(e=>[...e.types].sort().join('|'));
+assert.equal(new Set(statSets).size,41);assert.equal(new Set(typeSets).size,41);
+assert(!Olympics.events.some(e=>e.id==='obstacle'));
+console.log('PASS: all 41 stat sets and boosted-type sets are unique, each uses 1–3 entries, and Obstacle Sprint is removed.');

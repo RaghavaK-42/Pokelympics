@@ -22,7 +22,7 @@ Run the rules checks with:
 node scripts/test-draft.cjs
 ```
 
-After drafting, admins start a tournament of **10 distinct events randomly selected from a pool of 42**. The selected order is saved once with the room. Every stat is important in exactly 20 events in the full pool; every type is favored in exactly 7. Individual draws are unconstrained random samples and may have uneven stat/type coverage. Events favor 2, 3, or 4 types. See `EVENT_REPORT.md` for the full lineup.
+After drafting, admins start a tournament of **10 distinct events randomly selected from a pool of 41**. The selected order is saved once with the room. Every stat is important in exactly 16 events in the full pool; every type is favored in exactly 6. Individual draws are unconstrained random samples and may have uneven stat/type coverage. Events favor 2, 3, or 4 types. See `EVENT_REPORT.md` for the full lineup.
 
 Internal scoring uses the sum of the event's star ratings, one non-stacking 12% bonus if either type is favored, and a random performance multiplier from 0.9 to 1.1. All event definitions are in `olympics.js`. Bonus types and stats are part of the event definition, so the interface and scoring stay consistent.
 
@@ -74,12 +74,14 @@ Regenerate web artwork with `python scripts/build_web_assets.py` (requires Pillo
 
 To fix the GitHub deployment, copy the **contents** of `github-pages-upload/` into your local GitHub repository using GitHub Desktop, commit, and push to the branch used by Pages. Keep `assets/` alongside `index.html`. If using the ZIP, extract it first; uploading the ZIP as a single repository file does not publish the images inside it. GitHub's browser uploader permits only 100 files per upload, so GitHub Desktop is preferable for the full asset directory.
 
-## Expanded 42-event pool
+## Expanded 41-event pool
 
-The pool now includes 24 additional events. Each of the six stats appears in exactly 20 events, and every type is favored in exactly 7. Each Olympics still draws 10 different events once and saves that lineup; individual draws may have uneven coverage. New events retain saved outcomes, single-use entries, animated performances, numeric metrics, and podiums. `EVENT_REPORT.md` lists all 42 events; `NEW_EVENTS_REPORT.md` lists the 24 additions.
+The pool now includes 23 additional events. Each of the six stats appears in exactly 16 events, and every type is favored in exactly 6. Each Olympics still draws 10 different events once and saves that lineup; individual draws may have uneven coverage. New events retain saved outcomes, single-use entries, animated performances, numeric metrics, and podiums. `EVENT_REPORT.md` lists all 41 events; `NEW_EVENTS_REPORT.md` lists the 23 additions.
 
 `expanded-animations.js` is required alongside `event-animations.js` for the new individual-event scenes. The GitHub packaging script includes both. Check new animation scenes with `node scripts/test-expanded-animations.cjs`.
 
-## Unique event profiles
+## Event stat cap and pace
 
-All 42 events have distinct important-stat sets and distinct boosted-type sets, ignoring order. Lists use 1–4 stats or types as needed. Overall balance remains exact: each stat appears in 20 events and each type is favored in 7. See the updated `EVENT_REPORT.md` for the complete matrix. Already recorded results retain their saved scores; new events use the revised profiles.
+The pool contains 41 events; Obstacle Sprint has been removed. Each event uses 1–3 stats and has a unique stat set. Every stat appears exactly 16 times. Each event also favors 1–3 types with a unique boosted-type set, and every type is favored exactly six times. Each Olympics still draws 10 different events. Event animations run at twice their original speed with a two-second countdown.
+
+The only working directory is `C:\Users\Ragha\OneDrive\Desktop\Pokelympics`.

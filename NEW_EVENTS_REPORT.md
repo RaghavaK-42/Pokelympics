@@ -1,32 +1,31 @@
-# 24 new Pokélympics events
+# 23 added Pokélympics events
 
-Each Olympics draws 10 distinct events from the 42-event pool. Across the full pool, every stat appears exactly 20 times and every type is favored exactly 7 times. Random ten-event draws need not have equal coverage. Every event has a unique stat set and a unique boosted-type set (order does not matter). Lists range from 1 to 4 entries. Pokémon remain single-use.
+Each Olympics draws 10 distinct events from the 41-event pool. Across the full pool, every stat appears exactly 16 times and every type is favored exactly 6 times. Random ten-event draws need not have equal coverage. Events use 1–3 stats. All 41 stat sets and all 41 boosted-type sets are unique. Animations run twice as fast, with a two-second countdown. Pokémon remain single-use.
 
 | Event | Important stats | Boosted types | Metric |
 |---|---|---|---|
-| 400 Meter Sprint | HP, Attack, Sp. Atk, Speed | Normal, Fire, Electric | Time (lower wins) |
-| 3000 Meter Steeplechase | HP, Sp. Def, Speed | Electric, Grass, Ground, Bug | Time (lower wins) |
-| 50 Meter Butterfly | HP, Attack, Speed | Water, Ice, Ground, Flying | Time (lower wins) |
-| Single Sculls Rowing | HP, Defense, Sp. Atk, Sp. Def | Water, Dragon | Time (lower wins) |
-| Track Cycling | HP, Defense, Sp. Def, Speed | Normal, Electric, Steel | Time (lower wins) |
+| 400 Meter Sprint | Sp. Atk, Speed | Normal, Electric | Time (lower wins) |
+| 3000 Meter Steeplechase | HP, Sp. Def, Speed | Electric, Grass, Ground | Time (lower wins) |
+| 50 Meter Butterfly | HP, Attack, Speed | Water, Ice | Time (lower wins) |
+| Single Sculls Rowing | Sp. Atk, Sp. Def | Water, Ghost, Dragon | Time (lower wins) |
+| Track Cycling | Defense, Sp. Def, Speed | Normal, Steel | Time (lower wins) |
 | Alpine Slalom | Attack, Sp. Atk | Water, Ice, Ghost | Time (lower wins) |
-| Cross-Country Run | HP, Sp. Atk, Sp. Def, Speed | Ground, Psychic, Bug, Dragon | Time (lower wins) |
-| Obstacle Sprint | HP, Attack, Defense | Fighting, Poison, Rock | Time (lower wins) |
-| Pole Vault | Attack, Defense, Sp. Atk, Speed | Flying, Steel | Distance/height (higher wins) |
-| Triple Jump | Attack, Defense, Speed | Fighting | Distance/height (higher wins) |
-| Hammer Throw | Defense, Speed | Fire, Rock, Steel, Fairy | Distance/height (higher wins) |
-| Ten-Pin Bowling | Defense, Sp. Atk, Sp. Def, Speed | Rock | Points (higher wins) |
-| Table Tennis Rally | Attack, Defense, Sp. Atk, Sp. Def | Electric, Psychic, Bug | Points (higher wins) |
+| Cross-Country Run | Sp. Def, Speed | Ground, Psychic, Dragon | Time (lower wins) |
+| Pole Vault | HP, Attack | Ground, Flying, Steel | Distance/height (higher wins) |
+| Triple Jump | Attack, Defense, Speed | Fighting, Bug, Dark | Distance/height (higher wins) |
+| Hammer Throw | Defense, Speed | Fire, Steel, Fairy | Distance/height (higher wins) |
+| Ten-Pin Bowling | Defense, Sp. Atk, Speed | Flying, Rock | Points (higher wins) |
+| Table Tennis Rally | Attack, Defense, Sp. Atk | Electric, Bug | Points (higher wins) |
 | Badminton Accuracy | Attack, Sp. Atk, Speed | Grass, Flying, Fairy | Points (higher wins) |
 | Tennis Serve | Defense, Sp. Atk, Sp. Def | Fire, Grass, Psychic | Points (higher wins) |
 | Football Free Kick | Sp. Atk | Fighting, Poison, Dark | Points (higher wins) |
-| Basketball Free Throw | Defense, Sp. Atk | Flying, Psychic | Points (higher wins) |
-| Golf Approach | HP, Sp. Atk, Sp. Def | Grass, Ground, Ghost, Dragon | Points (higher wins) |
-| Curling Precision | HP, Defense, Sp. Atk, Speed | Water, Ice, Steel | Points (higher wins) |
-| Trampoline Routine | HP, Sp. Def | Psychic, Ghost, Steel, Fairy | Points (higher wins) |
-| Still Rings | HP, Defense, Sp. Def | Fire, Fighting, Rock, Dragon | Points (higher wins) |
-| Rhythmic Ribbon | HP, Attack, Sp. Atk | Normal, Poison, Ghost, Fairy | Points (higher wins) |
-| Karate Kata | HP, Attack, Sp. Atk, Sp. Def | Fire, Poison, Dark | Points (higher wins) |
-| Skateboard Park | Attack, Sp. Def, Speed | Normal, Ice, Bug, Dark | Points (higher wins) |
+| Basketball Free Throw | Defense, Sp. Atk | Flying, Psychic, Bug | Points (higher wins) |
+| Golf Approach | HP, Sp. Atk | Grass, Ground, Dragon | Points (higher wins) |
+| Curling Precision | HP, Attack, Defense | Water, Ice, Steel | Points (higher wins) |
+| Trampoline Routine | HP, Sp. Def | Psychic, Ghost, Fairy | Points (higher wins) |
+| Still Rings | HP, Defense, Sp. Def | Fire, Fighting, Rock | Points (higher wins) |
+| Rhythmic Ribbon | HP, Attack, Sp. Atk | Poison, Ghost, Fairy | Points (higher wins) |
+| Karate Kata | HP, Sp. Atk, Sp. Def | Fire, Poison, Dark | Points (higher wins) |
+| Skateboard Park | Attack, Sp. Def, Speed | Normal | Points (higher wins) |
 
 Every event has animated performances, numeric results, and a Pokémon podium. The interface shows relevant stats and favored types, with formulas kept internal.
