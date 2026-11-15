@@ -82,7 +82,7 @@ The pool now includes 23 additional events. Each of the six stats appears in exa
 
 ## Event stat cap and pace
 
-The pool contains 41 events; Obstacle Sprint has been removed. Each event uses 1–3 stats and has a unique stat set. Every stat appears exactly 16 times. Each event also favors 1–3 types with a unique boosted-type set, and every type is favored exactly six times. Each Olympics still draws 10 different events. Event animations run at twice their original speed with a two-second countdown.
+The pool contains 41 events; Obstacle Sprint has been removed. Each event uses 1–3 stats and has a unique stat set. Every stat appears exactly 16 times. Each event also favors 1–3 types with a unique boosted-type set, and every type is favored exactly six times. Each Olympics still draws 10 different events. Event animations take 75% of their original duration (1.5 times their previous duration), with a two-second countdown.
 
 The only working directory is `C:\Users\Ragha\OneDrive\Desktop\Pokelympics`.
 

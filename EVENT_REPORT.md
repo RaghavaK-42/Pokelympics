@@ -1,6 +1,6 @@
 # All 41 Pokélympics events
 
-Each Olympics draws 10 distinct events from the 41-event pool. Across the full pool, every stat appears exactly 16 times and every type is favored exactly 6 times. Random ten-event draws need not have equal coverage. Events use 1–3 stats. All 41 stat sets and all 41 boosted-type sets are unique. Animations run twice as fast, with a two-second countdown. Pokémon remain single-use.
+Each Olympics draws 10 distinct events from the 41-event pool. Across the full pool, every stat appears exactly 16 times and every type is favored exactly 6 times. Random ten-event draws need not have equal coverage. Events use 1–3 stats. All 41 stat sets and all 41 boosted-type sets are unique. Animations take 75% of their original duration, with a two-second countdown. Pokémon remain single-use.
 
 | Event | Important stats | Boosted types | Metric |
 |---|---|---|---|

@@ -33,7 +33,7 @@ assert.equal(Olympics.events.length,41);assert(new Set(Olympics.events.map(e=>e.
 const observed=new Set();for(let i=0;i<200;i++){const r={players:[{uid:'a',team:Array(12).fill(1)}],turn:12,adminIds:['a']};Olympics.apply(r,'a',{action:'startGames'},pokemon);assert.equal(r.games.order.length,10);assert.equal(new Set(r.games.order).size,10);r.games.order.forEach(id=>observed.add(id))}assert.equal(observed.size,41);
 console.log('PASS: 200 independent tournament draws select exactly 10 distinct events from 41; every event is reachable.');
 
-for(const event of Olympics.events){assert(event.stats.length>=1&&event.stats.length<=3);assert(event.duration<=11000)}
+for(const event of Olympics.events){assert(event.stats.length>=1&&event.stats.length<=3);assert(event.duration<=16500)}
 const statSets=Olympics.events.map(e=>[...e.stats].sort().join('|')),typeSets=Olympics.events.map(e=>[...e.types].sort().join('|'));
 assert.equal(new Set(statSets).size,41);assert.equal(new Set(typeSets).size,41);
 assert(!Olympics.events.some(e=>e.id==='obstacle'));

@@ -12,7 +12,7 @@ const events=[
    "Electric",
    "Dark"
   ],
-  "duration": 6000,
+  "duration": 9000,
   "mode": "race"
  },
  {
@@ -27,7 +27,7 @@ const events=[
    "Rock",
    "Steel"
   ],
-  "duration": 3000,
+  "duration": 4500,
   "mode": "turn"
  },
  {
@@ -42,7 +42,7 @@ const events=[
    "Grass",
    "Psychic"
   ],
-  "duration": 3000,
+  "duration": 4500,
   "mode": "turn"
  },
  {
@@ -56,7 +56,7 @@ const events=[
    "Bug",
    "Dragon"
   ],
-  "duration": 11000,
+  "duration": 16500,
   "mode": "race"
  },
  {
@@ -71,7 +71,7 @@ const events=[
    "Ice",
    "Flying"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race"
  },
  {
@@ -84,7 +84,7 @@ const events=[
   "types": [
    "Fighting"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn"
  },
  {
@@ -99,7 +99,7 @@ const events=[
    "Psychic",
    "Ghost"
   ],
-  "duration": 3750,
+  "duration": 5625,
   "mode": "turn"
  },
  {
@@ -114,7 +114,7 @@ const events=[
    "Rock",
    "Steel"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn"
  },
  {
@@ -127,7 +127,7 @@ const events=[
    "Poison",
    "Dark"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn"
  },
  {
@@ -140,7 +140,7 @@ const events=[
    "Normal",
    "Fairy"
   ],
-  "duration": 3750,
+  "duration": 5625,
   "mode": "turn"
  },
  {
@@ -156,7 +156,7 @@ const events=[
    "Electric",
    "Ground"
   ],
-  "duration": 7000,
+  "duration": 10500,
   "mode": "race"
  },
  {
@@ -170,7 +170,7 @@ const events=[
    "Rock",
    "Dragon"
   ],
-  "duration": 3500,
+  "duration": 5250,
   "mode": "turn"
  },
  {
@@ -185,7 +185,7 @@ const events=[
    "Poison",
    "Bug"
   ],
-  "duration": 3500,
+  "duration": 5250,
   "mode": "turn"
  },
  {
@@ -201,7 +201,7 @@ const events=[
    "Rock",
    "Dark"
   ],
-  "duration": 3500,
+  "duration": 5250,
   "mode": "turn"
  },
  {
@@ -215,7 +215,7 @@ const events=[
    "Water",
    "Fairy"
   ],
-  "duration": 3750,
+  "duration": 5625,
   "mode": "turn"
  },
  {
@@ -231,7 +231,7 @@ const events=[
    "Poison",
    "Bug"
   ],
-  "duration": 7500,
+  "duration": 11250,
   "mode": "race"
  },
  {
@@ -246,7 +246,7 @@ const events=[
    "Ice",
    "Ghost"
   ],
-  "duration": 8500,
+  "duration": 12750,
   "mode": "race"
  },
  {
@@ -262,7 +262,7 @@ const events=[
    "Ice",
    "Dragon"
   ],
-  "duration": 8500,
+  "duration": 12750,
   "mode": "race"
  },
  {
@@ -276,7 +276,7 @@ const events=[
    "Normal",
    "Electric"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "sprint",
   "distance": 400,
@@ -300,7 +300,7 @@ const events=[
    "Grass",
    "Ground"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "steeple",
   "distance": 3000,
@@ -323,7 +323,7 @@ const events=[
    "Water",
    "Ice"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "water",
   "distance": 50,
@@ -346,7 +346,7 @@ const events=[
    "Ghost",
    "Dragon"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "boat",
   "distance": 1000,
@@ -369,7 +369,7 @@ const events=[
    "Normal",
    "Steel"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "bike",
   "distance": 1000,
@@ -392,7 +392,7 @@ const events=[
    "Ice",
    "Ghost"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "ski",
   "distance": 500,
@@ -415,7 +415,7 @@ const events=[
    "Psychic",
    "Dragon"
   ],
-  "duration": 8000,
+  "duration": 12000,
   "mode": "race",
   "animation": "trail",
   "distance": 5000,
@@ -438,7 +438,7 @@ const events=[
    "Flying",
    "Steel"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "vault",
   "metric": {
@@ -460,7 +460,7 @@ const events=[
    "Bug",
    "Dark"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "hops",
   "metric": {
@@ -481,7 +481,7 @@ const events=[
    "Steel",
    "Fairy"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "hammer",
   "metric": {
@@ -502,7 +502,7 @@ const events=[
    "Flying",
    "Rock"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "pins"
  },
@@ -518,7 +518,7 @@ const events=[
    "Electric",
    "Bug"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "table"
  },
@@ -535,7 +535,7 @@ const events=[
    "Flying",
    "Fairy"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "shuttle"
  },
@@ -552,7 +552,7 @@ const events=[
    "Grass",
    "Psychic"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "tennis"
  },
@@ -567,7 +567,7 @@ const events=[
    "Poison",
    "Dark"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "goal"
  },
@@ -583,7 +583,7 @@ const events=[
    "Psychic",
    "Bug"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "hoop"
  },
@@ -599,7 +599,7 @@ const events=[
    "Ground",
    "Dragon"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "golf"
  },
@@ -616,7 +616,7 @@ const events=[
    "Ice",
    "Steel"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "curl"
  },
@@ -632,7 +632,7 @@ const events=[
    "Ghost",
    "Fairy"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "bounce"
  },
@@ -649,7 +649,7 @@ const events=[
    "Fighting",
    "Rock"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "rings"
  },
@@ -666,7 +666,7 @@ const events=[
    "Ghost",
    "Fairy"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "ribbon"
  },
@@ -683,7 +683,7 @@ const events=[
    "Poison",
    "Dark"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "kata"
  },
@@ -698,7 +698,7 @@ const events=[
   "types": [
    "Normal"
   ],
-  "duration": 3250,
+  "duration": 4875,
   "mode": "turn",
   "animation": "ramp"
  }
